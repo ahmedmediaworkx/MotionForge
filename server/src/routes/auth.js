@@ -1,10 +1,14 @@
 import express from 'express';
 import { z } from 'zod';
-import User from '../models/User.js';
-import { generateTokens, verifyRefreshToken, protect } from '../middleware/auth.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import db from '../db.js';
 import { asyncHandler } from '../middleware/errorHandler.js';
 
 const router = express.Router();
+
+const JWT_SECRET = process.env.JWT_SECRET || 'motionforge-secret-key-change-in-production';
+const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'motionforge-refresh-secret-key-change-in-production';
 
 // Validation schemas
 const registerSchema = z.object({

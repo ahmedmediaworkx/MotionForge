@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 import authRoutes from './routes/auth.js';
@@ -17,6 +16,9 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Local JSON database - no MongoDB needed!
+console.log('📁 Using local JSON file database');
 
 // Security middleware
 app.use(helmet({
