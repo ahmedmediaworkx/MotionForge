@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://GITHUB_USERNAME.github.io/MotionForge",
+  "homepage": "https://ahmedmediaworkx.github.io/MotionForge",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
